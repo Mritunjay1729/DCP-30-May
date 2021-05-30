@@ -52,10 +52,28 @@ s_i = int (float(s))
 var1 = int(input("Enter Var1  "))
 
 
-a_c = chr(10)
+a_c = chr(100)
 a_c
 
 ord('Z')
+
+
+a = input()
+
+if ord(a)>= 65 and ord(a) <=90:
+    print("Character")
+else:
+    print("Not Character")
+
+
+
+
+
+
+
+
+
+
 
 
 
