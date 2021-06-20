@@ -7,14 +7,15 @@ Created on Mon Nov 16 19:13:06 2020
 
 #Lambda
 
-
 def f(x):
     return (x**2)
 
 f(3)
-
+f(9)
 
 f_lambda = lambda x : x**2
+
+f_lambda(3)
 
 a = f_lambda(3)
 
@@ -29,6 +30,8 @@ print(f_lambda(6))
 f1_lambda = lambda x,y : x*y
 
 a = f1_lambda(3,4)
+a
+
 
 print (a)
 
@@ -51,8 +54,11 @@ df2
 
 caps = lambda x : x.upper()
 
-df2['name'].apply(caps)
+caps('vikas')
 
+
+df2.name = df2['name'].apply(caps)
+df2
 
 
 
@@ -141,8 +147,9 @@ for i in range(5):
 
 
 #Filter
-number_list = range(-5, 5)
+number_list = list(range(-5, 5))
 number_list
+
 
 less_than_zero = list(filter(lambda x: x < 0, number_list))
 print(less_than_zero)
@@ -154,22 +161,28 @@ print(less_than_zero)
 # filter() with lambda() 
 li = [5, 7, 22, 97, 54, 62, 77, 23, 73, 61] 
 
-final_list = list(filter(lambda x: (x%2 != 0) , li)) 
+final_list = list(filter(lambda x: (x%2 == 0) , li)) 
 
 print(final_list) 
+
+
+def f1(x):
+    return(x%2 == 0)
+
 
 
 # Python code to illustrate  
 # reduce() with lambda() 
 # to get sum of a list 
 
+
 from functools import reduce
 
 li = [5, 8, 10, 20, 50, 100] 
 
-sum = reduce((lambda x, y: x + y), li) 
+s1 = reduce(lambda x, y: x + y, li) 
 
-print (sum) 
+print (s1) 
 
 
 

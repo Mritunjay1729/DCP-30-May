@@ -249,9 +249,12 @@ grades1
 df1 = pd.DataFrame(grades1)
 df1
 
-grades2 = {'subject3': ['A1','B1','A2','A3'],'subject4': ['A2','A1','B2','B3']}
+grades2 = {'subject1': ['A1','B1','A2','A3'],'subject4': ['A2','A1','B2','B3']}
 
 df2 = pd.DataFrame(grades2)
+df2
+
+df1
 df2
 
 
