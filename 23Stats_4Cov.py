@@ -9,7 +9,8 @@
 #If COV(xi, xj) > 0 then variables positively correlated
 #If COV(xi, xj) < 0 then variables negatively correlated
 
-#numpy.cov(m, y=None, rowvar=True, bias=False, ddof=None, fweights=None, aweights=None)
+#numpy.cov(m, y=None, rowvar = True, bias=False, ddof=None, fweights=None, aweights=None)
+
 
 #Parameters:
 #m : [array_like] A 1D or 2D variables. variables are columns

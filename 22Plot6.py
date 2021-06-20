@@ -149,7 +149,7 @@ import seaborn as sns
 white_wine = pd.read_csv('winequality-white.csv', sep=';')
 red_wine = pd.read_csv('winequality-red.csv', sep=',')
 
-white_wine.head()
+white_wine.columns
 # store wine type as an attribute
 red_wine['wine_type'] = 'red'   
 white_wine['wine_type'] = 'white'
@@ -169,7 +169,6 @@ red_wine.columns
 
 red_wine['alcohal_level'] = pd.Categorical(red_wine['alcohol'], 
                                            categories=['low', 'medium', 'high'])
-ro
 red_wine.to_csv('update_wine.csv')
 
 white_wine['quality_label'] = white_wine['quality'].apply(lambda value: 'low' 
@@ -192,7 +191,7 @@ wines.columns
 
 
 
-wines[['fixed acidity', 'volatile acidity']].hist(color='steelblue', edgecolor='black', linewidth=1.0,
+wines['fixed acidity'].hist(color='steelblue', edgecolor='black', linewidth=1.0,
            xlabelsize=8, ylabelsize=8, grid=False)    
 
 plt.tight_layout(rect=(0, 0, 1.2, 1.2))   
@@ -211,12 +210,14 @@ ax.set_ylabel("Frequency")
 ax.text(1.2, 800, r'$\lambda$='+str(round(wines['sulphates'].mean(),2)), 
          fontsize=12)
 
-freq, bins, patches = ax.hist(wines['sulphates'], color='steelblue', bins=15,
+freq, bins, patches = ax.hist(wines['sulphates'], color='steelblue', bins=30,
                                     edgecolor='black', linewidth=1)
                                     
 
+freq
+bins
 
-
+import seaborn as sns
 
 # Density Plot
 fig = plt.figure(figsize = (6, 4))
@@ -227,7 +228,7 @@ ax1 = fig.add_subplot(1,1, 1)
 ax1.set_xlabel("Sulphates")
 ax1.set_ylabel("Frequency") 
 sns.kdeplot(wines['sulphates'], ax=ax1, shade=True, color='steelblue')
-                                    
+           
 sns.distplot(wines['sulphates'], kde=True)
 
 
@@ -260,8 +261,11 @@ bar = ax.bar(w_q[0], w_q[1], color='steelblue',
 
 # Correlation Matrix Heatmap
 f, ax = plt.subplots(figsize=(10, 6))
+wines.columns
 corr = wines.corr()
 corr
+round(corr,2)
+
 hm = sns.heatmap(round(corr,2), annot=True, ax=ax, cmap="coolwarm",fmt='.2f',
                  linewidths=.05)
 f.subplots_adjust(top=0.93)
@@ -432,11 +436,13 @@ sns.kdeplot(white_wine['sulphates'], ax=ax2, shade=True, color='y')
 
 
 
+wines.columns
 
+wines['quality'].unique
 
 
 # Box Plots
-f, (ax) = plt.subplots(1, 1, figsize=(12, 4))
+f, (ax) = plt.subplots(1, 1, figsize=(12, 4), dpi=600)
 f.suptitle('Wine Quality - Alcohol Content', fontsize=14)
 sns.boxplot(x="quality", y="alcohol", data=wines,  ax=ax)
 ax.set_xlabel("Wine Quality",size = 12,alpha=0.8)
@@ -447,7 +453,7 @@ ax.set_ylabel("Wine Alcohol %",size = 12,alpha=0.8)
 
 # Visualizing 3-D numeric data with Scatter Plots
 # length, breadth and depth
-fig = plt.figure(figsize=(8, 6))
+fig = plt.figure(figsize=(8, 6), dpi=600)
 ax = fig.add_subplot(111, projection='3d')
 
 xs = wines['residual sugar']
